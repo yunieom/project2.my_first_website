@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="mybatis.mapper.board">
+	<select id="selectBoardList" parameterType="Map" resultType="dto.BoardDto">
+		SELECT *
+		FROM (SELECT ROWNUM AS RN, A.*
+		      FROM (SELECT   *
+		            FROM     BOARD2
+	                ORDER BY BGROUP DESC, BDEPTH ASC, BGROUPORD ASC) A)
+	    WHERE RN BETWEEN #{begin} AND #{end}
+	</select>
+	
+	<select id="selectBoardCount" resultType="int">
+		SELECT COUNT(*)
+		  FROM BOARD2
+	</select>
+	
+	<insert id="boardInsert" parameterType="dto.BoardDto">
+		INSERT
+		  INTO BOARD2
+		VALUES (BOARD2_SEQ.NEXTVAL,  <!-- bNo -->
+		        #{mId},
+		        #{bTitle},
+		        #{bContent},
+		        #{bIp},
+		        0,  <!-- bHit-->
+		        SYSDATE,  <!-- bLastModifydate -->
+		        SYSDATE,  <!-- bRegDate -->
+		        0,  <!-- bDelete : post 0, deleted post -1 -->
+		        BOARD2_SEQ.CURRVAL,  <!-- bGroup : same value as bNo value -->
+		        0,  <!-- bGroupOrd -->
+		        0  <!-- bDepth : post : 0 , comment : +1 -->
+		        )
+	</insert>
+	<select id="selectBybNo" parameterType="int" resultType="dto.BoardDto">
+		SELECT *
+		  FROM BOARD2
+		 WHERE BNO = #{bNo} 
+	</select>
+	<update id="boardUpdatebHit" parameterType="int">
+		UPDATE BOARD2
+		   SET BHIT = BHIT + 1
+		 WHERE BNO = #{bNo}  
+	</update>
+	<insert id="replyInsert" parameterType="dto.BoardDto">
+		INSERT
+		  INTO BOARD2
+		VALUES (BOARD2_SEQ.NEXTVAL,
+				#{mId},
+				#{bTitle},
+				#{bContent},
+				#{bIp},
+				0,
+				SYSDATE,
+				SYSDATE,
+				0,
+				#{bGroup},
+				#{bGroupOrd},
+				#{bDepth})  
+	</insert>
+	<!--  -->
+	<update id="replyUpdatebGroupOrd" parameterType="dto.BoardDto">
+		UPDATE BOARD2
+		   SET BGROUPORD = BGROUPORD + 1
+		 WHERE BGROUP = #{bGroup} AND
+		       BDEPTH > 0
+	</update>
+	<update id="boardDelete" parameterType="int">
+		UPDATE BOARD2
+		   SET BDELETE = -1
+		 WHERE BNO = #{bNo}
+	</update>
+	<!-- search result  -->
+	<select id="selectQueryBoardList" parameterType="Map" resultType="dto.BoardDto">
+		SELECT *
+		  FROM (SELECT ROWNUM AS RN, A.* 
+		  		  FROM (SELECT *
+		  		  		  FROM BOARD2
+		  		  	   <if test="column=='BTITLE'">WHERE BTITLE LIKE '%' || #{query} || '%'</if>
+		  			   <if test="column=='BCONTENT'">WHERE BCONTENT LIKE '%' || #{query} || '%'</if>
+		               <if test="column=='BOTH'">WHERE BTITLE LIKE '%' || #{query} || '%' OR BCONTENT LIKE '%' || #{query} || '%'</if>		  
+		  			   ORDER BY BGROUP DESC, BDEPTH ASC, BGROUPORD ASC) A)
+		WHERE RN BETWEEN #{begin} AND #{end}  
+	</select>
+	<!-- number of searched results -->
+	<select id="selectQueryBoardCount" parameterType="Map" resultType="int">
+		SELECT COUNT(*)
+		  FROM BOARD2
+		  <if test="column=='BTITLE'">WHERE BTITLE LIKE '%' || #{query} || '%'</if>
+		  <if test="column=='BCONTENT'">WHERE BCONTENT LIKE '%' || #{query} || '%'</if>
+		  <if test="column=='BOTH'">WHERE BTITLE LIKE '%' || #{query} || '%' OR BCONTENT LIKE '%' || #{query} || '%'</if>	
+	</select>
+	<select id="selectMyBoardList" parameterType="Map" resultType="dto.BoardDto">
+		SELECT *
+		FROM (SELECT ROWNUM AS RN, A.*
+		      FROM (SELECT   *
+		            FROM     BOARD2
+		            WHERE    MID = #{mId}
+	                ORDER BY BGROUP DESC, BDEPTH ASC, BGROUPORD ASC) A)
+	    WHERE RN BETWEEN #{begin} AND #{end}
+	</select>
+	<select id="selectMyBoardCount" parameterType="Map" resultType="int">
+		SELECT COUNT(*)
+		  FROM BOARD2
+		 WHERE MID = #{mId} 
+	</select>
+</mapper>

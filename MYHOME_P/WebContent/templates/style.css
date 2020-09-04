@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+
+ #wrap {
+ 	font-family: 'Source Sans Pro', sans-serif;
+ }
+ 
+ #header-wrap {
+	margin-top: 1%; 
+	margin-right: 3%; 
+	float: right;
+ }
+ 
+#main-wrap > table {
+ 	width: 89%;
+ 	text-align: center;
+ }
+
+#header-wrap > button.btn.btn-outline-secondary, button.btn.btn-info {
+	padding: 4px 8px;
+}
+
+#header-wrap > h5 > button.btn.btn-info, button.btn.btn-warning, button:nth-child(3), button:nth-child(4) {
+	padding: 4px 8px;
+}
+
+#main-wrap > div.newPost > form > button.btn.btn-outline-warning, button.btn.btn-outline-info {
+	padding: 2.5px 5px;	
+}
+
+ a {
+ 	text-decoration: none;
+ 	color: black;
+ }
+#main-wrap > div.search {
+ 	font-size: small;
+ 	float: right;
+ 	margin-right: 3%;
+ }
+ 
+#main-wrap > table > thead {
+	font-size: large;
+}
+#main-wrap > div.poolList {
+	
+ 	text-align: left;
+ 	margin-left: 15%;
+ 	font-size: large;
+ }
+ 
+#main-wrap > div.page {
+	text-align: center;
+}
+#main-wrap > div.search {
+ 	padding: 2px 2px;
+ }
+ 
+#wrap > div.page-width.footer--bottom_block > div > small > div {
+ 	text-align: center;
+ }
+#wrap > div.page-width.footer--bottom_block > div > div:nth-child(1) > div {
+ 	text-align: center;
+ }
+#main-wrap > div.newPost{
+ 	float: right;
+ 	margin-right: 3%;
+ }
+ 
+ .welcome {
+ 	text-align: center;
+ }
+ .myPage {
+	text-align: center;
+ }
+ #f > div {
+ 	text-align: right;
+ 	margin-right:43% ;
+ }
+#mId, #mName, #mEmail, #mPhone, #mRegDate {
+	text-align: left;
+}
+#updateInfoBtn, #updatePwBtn {
+	padding: 2px 4px;
+}
