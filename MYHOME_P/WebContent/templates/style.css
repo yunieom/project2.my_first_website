@@ -41,7 +41,7 @@
 #main-wrap > table > thead {
 	font-size: large;
 }
-#main-wrap > div.poolList {
+#main-wrap > div.boardList {
 	
  	text-align: left;
  	margin-left: 15%;
@@ -54,6 +54,9 @@
 #main-wrap > div.search {
  	padding: 2px 2px;
  }
+#searchSelect {
+	padding: 2px 2px;
+}
  
 #wrap > div.page-width.footer--bottom_block > div > small > div {
  	text-align: center;
@@ -66,19 +69,85 @@
  	margin-right: 3%;
  }
  
+ 
  .welcome {
  	text-align: center;
  }
- .myPage {
-	text-align: center;
+ .login {
+ 	text-align: cetner;
+ }
+
+ 
+ 
+ #main-wrap > div {
+ 	text-align: center;
+ }
+ 
+ 
+
+ .UpdateBtn {
+ 	margin-right:40%;
  }
  #f > div {
  	text-align: right;
- 	margin-right:43% ;
+ 	margin-right:42% ;
  }
+ 
+#main-wrap > div.findPw {
+ 	text-align: center;
+ }
+
+#main-wrap > div.joinForm {
+	text-align: right;
+ 	margin-right:40% ;
+}
+#idCheckResult, #pwCheckResult, #pwConfirmResult, #emailCheckResult, #phoneCheckResult {
+	text-align: left;
+	padding-left: 79%;
+	margin-right: 0%;
+}
+#updatePwCheckResult, #updatePwConfirmResult {
+	padding-left: 44%;
+	text-align: left !important;
+}
+#updatePwBtn2, #clearBtn {
+	padding: 3px 8px !important;
+}
+
+#f > div.UpdateBtn {
+	text-align: center;
+	margin: auto;
+}
+
+#f > div.joinBtn {
+	text-align: center;
+	margin: auto;
+}
+
+
+
+#main-wrap > div.join > form > input[type=text] {
+	padding: 1px 2px;
+}
+#main-wrap > div.join > form > input[type=password] {
+	padding: 1px 2px;
+}
+
+
+#loginmId, #loginmPw, #findIdmEmail, #findPwmId, #findPwmPhone, #LeavemId, #LeavemPw {
+	padding: 6px 20px;
+}
+
+#main-wrap > div > form > button.btn-outline-dark {
+	padding: 6px 82px;
+}
+
 #mId, #mName, #mEmail, #mPhone, #mRegDate {
 	text-align: left;
 }
 #updateInfoBtn, #updatePwBtn {
 	padding: 2px 4px;
+}
+#joinBtn, #clearBtn {
+	padding: 2px 6px;
 }

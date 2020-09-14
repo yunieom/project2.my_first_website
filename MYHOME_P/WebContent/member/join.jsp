@@ -42,16 +42,16 @@
 							// 가입유무 확인
 							if ( obj.isPossible ) {  // 가입이 가능하면
 								$('#idCheckResult').text('Valid ID');
-								$('#idCheckResult').css('color', 'blue').css('font-weight', 'bold');
+								$('#idCheckResult').css('color', '#17a2b8').css('font-size', '15px');
 								idPass = true;  // 아이디 체크 통과
 							} else {
 								$('#idCheckResult').text('ID is taken. Try another.');
-								$('#idCheckResult').css('color', 'red');
+								$('#idCheckResult').css('color', '#dc3545').css('font-size', '15px');
 								idPass = false;
 							}
 						} else {  // 정규식을 만족하지 않으면
 							$('#idCheckResult').text('ID must be between 5 and 20 characters long.');
-							$('#idCheckResult').css('color', 'red');
+							$('#idCheckResult').css('color', '#dc3545').css('font-size', '15px');
 							idPass = false;
 						}
 					},
@@ -72,11 +72,11 @@
 			function pwInputCheck() {
 				if ( $('#mPw').val() != $('#mPw2').val() ) {  // 둘 다 동일하게 입력하지 않았다면,
 					$('#pwConfirmResult').text('Those passwords didn\'t match. Try again.');
-					$('#pwConfirmResult').css('color', 'red');
+					$('#pwConfirmResult').css('color', '#dc3545').css('font-size', '15px');
 					pwPass = false;
 				} else {  // 둘 다 동일하게 입력했다면,
 					$('#pwConfirmResult').text('Matched'); 
-					$('#pwConfirmResult').css('color', 'blue').css('font-weight', 'bold');
+					$('#pwConfirmResult').css('color', '#17a2b8').css('font-size', '15px');
 					pwPass = true;  // 비밀번호 체크 통과
 				}
 			}
@@ -87,10 +87,10 @@
 				
 				if ( regExpPw.test($('#mPw').val()) ) {
 					$('#pwCheckResult').text('Valid Password');
-					$('#pwCheckResult').css('color', 'blue').css('font-weight', 'bold');
+					$('#pwCheckResult').css('color', '#17a2b8').css('font-size', '15px');
 				} else {
 					$('#pwCheckResult').text('Use 8 or more characters with a mix of letters, numbers & symbols');
-					$('#pwCheckResult').css('color', 'red');
+					$('#pwCheckResult').css('color', '#dc3545').css('font-size', '15px');
 				}
 				
 			});
@@ -111,16 +111,16 @@
 						if ( regExpEmail.test($('#mEmail').val()) ) {  // 이메일 정규식 체크
 							if ( obj.isPossible ) {
 								$('#emailCheckResult').text('Valid Email');
-								$('#emailCheckResult').css('color', 'blue').css('font-weight', 'bold');
+								$('#emailCheckResult').css('color', '#17a2b8').css('font-size', '15px');
 								emailPass = true;  // 이메일 체크 통과
 							} else {
 								$('#emailCheckResult').text('Email-Address is already in use. Try another.');
-								$('#emailCheckResult').css('color', 'red');
+								$('#emailCheckResult').css('color', '#dc3545').css('font-size', '15px');
 								emailPass = false;
 							}
 						} else {  // 이메일 정규식 체크 실패(이메일 형식이 아님)
 							$('#emailCheckResult').text('Please enter valid email address.');
-							$('#emailCheckResult').css('color', 'red');
+							$('#emailCheckResult').css('color', '#dc3545').css('font-size', '15px');
 							emailPass = false;
 						}
 					},
@@ -136,10 +136,10 @@
 			$('#mPhone').keyup(function(){
 				if ( regExpPhone.test($('#mPhone').val()) ) {
 					$('#phoneCheckResult').text('OK');
-					$('#phoneCheckResult').css('color', 'blue').css('font-weight', 'bold');
+					$('#phoneCheckResult').css('color', '#17a2b8').css('font-weight', 'bold');
 				} else {
 					$('#phoneCheckResult').text('Please enter valid your phone number.');
-					$('#phoneCheckResult').css('color', 'red');
+					$('#phoneCheckResult').css('color', '#dc3545').css('font-size', '15px');
 				}
 			});
 			
@@ -190,41 +190,50 @@
 		});
 	
 	</script>
-
-	<form id="f" method="post">
 	
-		<h3>Looks like you're new. <br> Please create an account.</h3>
+	<br/><br/><br/>
 	
-		ID<br/>
-		<input id="mId" type="text" name="mId" autofocus /><br/>
-		<div id="idCheckResult" class="result"></div><br/>
-
-		PASSWORD<br/>	
-		<input id="mPw" type="password" name="mPw" /><br/>
-		<div id="pwCheckResult" class="result"></div><br/>
-		
-		CONFIRM PASSWORD<br/>	
-		<input id="mPw2" type="password" name="mPw2" /><br/>
-		<div id="pwConfirmResult" class="result"></div><br/>
-		
-		NAME<br/>	
-		<input id="mName" type="text" name="mName" /><br/><br/>
-		
-		EMAIL<br/>	
-		<input id="mEmail" type="text" name="mEmail" /><br/>
-		<div id="emailCheckResult" class="result"></div><br/>
-		
-		PHONE NUMBER<br/>	
-		<input id="mPhone" type="text" name="mPhone" /><br/>
-		<div id="phoneCheckResult" class="result"></div><br/>
-		
-		ADDRESS<br/>	
-		<input id="mAddress" type="text" name="mAddress" /><br/><br/>
-		
-		<input id="joinBtn" type="button" value="SIGN UP" />
-		<input id="clearBtn" type="button" value="RESET" />
-		
-	</form>
+	<div class="join">
+		<form id="f" method="post">
+	
+		<h3>Looks like you're new </h3><h5> Please create an account</h5>
+			<br/><br/>
+			<div class="joinForm">
+			ID &nbsp;
+			<input id="mId" type="text" name="mId" autofocus /><br/>
+			<div id="idCheckResult" class="result"></div><br/>
+	
+			PW &nbsp;
+			<input id="mPw" type="password" name="mPw" /><br/>
+			<div id="pwCheckResult" class="result"></div><br/>
+			
+			Confirm &nbsp;
+			<input id="mPw2" type="password" name="mPw2" /><br/>
+			<div id="pwConfirmResult" class="result"></div><br/>
+			
+			Name &nbsp;
+			<input id="mName" type="text" name="mName" /><br/><br/>
+			
+			Email &nbsp;
+			<input id="mEmail" type="text" name="mEmail" /><br/>
+			<div id="emailCheckResult" class="result"></div><br/>
+			
+			Phone &nbsp;
+			<input id="mPhone" type="text" name="mPhone" /><br/>
+			<div id="phoneCheckResult" class="result"></div><br/>
+			 
+			City &nbsp;
+			<input id="mAddress" type="text" name="mAddress" /><br/><br/>
+			</div>
+			<br/>
+			<div class="joinBtn">
+			<button type="button" id="joinBtn"  class="btn btn-outline-dark">SIGN UP</button>
+			<!-- <input id="joinBtn" type="button" value="SIGN UP" />  --> &nbsp;&nbsp;
+			<button type="button" id="clearBtn"  class="btn btn-outline-dark">RESET</button>
+			<!-- <input id="clearBtn" type="button" value="RESET" />  -->
+			</div>
+		</form>
+	</div>
 	
 
 <!-- footer.jsp 포함(정적) -->

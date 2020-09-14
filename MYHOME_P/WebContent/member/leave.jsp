@@ -14,22 +14,22 @@
 		
 		$('#leaveBtn').click(function(){
 			//valid ID check
-			if ($('#mId').val() == '') {
+			if ($('#LeavemId').val() == '') {
 				alert('plese input your ID.');
 				return false;
-			} else if ($('#mId').val() != '${loginUser.mId}') {
+			} else if ($('#LeavemId').val() != '${loginUser.mId}') {
 				alert('Please check your ID.');
 				return false;
 			}
 			//valid PW check
-			if ($('#mPw').val() == '') {
+			if ($('#LeavemPw').val() == '') {
 				alert('please input your Password.');
 				return false;
-			} else if ($('#mPw').val() != '${loginUser.mPw}') {
+			} else if ($('#LeavemPw').val() != '${loginUser.mPw}') {
 				alert('Please check your Password.');
 				return false;
 			}
-			if ( !confirm('Your account will be PERMANENTLY deleted.')){
+			if ( !confirm('Your account will be permanently deleted.')){
 				return false;
 			}
 			$.ajax({
@@ -37,7 +37,7 @@
 				dataType: 'json',
 				success: function(obj) {
 					if (obj.isSuccess){
-						alert('We have now permanently deleted your user account. You are alawys welcome to join again!');
+						alert('We have now permanently deleted your user account. You are alawys welcome to join again.');
 						location.href='/MYHOME_P/index.member'
 					} else {
 						alert('We could\'t delete your user account some reasons.');
@@ -57,14 +57,17 @@
 	
 	
 	</script>
-	
-	<form method="post">
-		<h3>Are you sure you want permanently delete your user account?</h3>
-		<input id="mId" type="text" name="mId" placeholder="ID" autofocus /><br/>
-		<input id="mPw" type="password" name="mPw" placeholder="****" /><br/><br/>
-		<input id="leaveBtn" type="button" value="Delete Account" /> 
-		
-	</form>
+	<br/><br/><br/><br/>
+	<div class="Leave">
+		<form method="post">
+			<h3>Are you sure you want permanently delete your user account?</h3>
+			<br/><br/>
+			<p><input id="LeavemId" type="text" name="mId" placeholder="id" autofocus /><br/></p>
+			<p><input id="LeavemPw" type="password" name="mPw" placeholder="****" /><br/></p>
+			<button type="button" class="btn btn-outline-dark" id="leaveBtn"> LEAVE </button>
+			<!-- <input id="leaveBtn" type="button" value="Delete Account" />  -->
+		</form>
+	</div>
 
 
 <!-- footer.jsp 포함(정적) -->

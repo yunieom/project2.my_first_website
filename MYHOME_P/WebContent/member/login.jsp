@@ -17,15 +17,20 @@
 	 	}
 	
 	</script>
+	<br/><br/><br/><br/>
 	
-	<form method="post">
-		<input type = "text" name="mId" placeholder="id" autofocus /> <br/>
-		<input type = "password" name="mPw" placeholder="****" /> <br/>
-		<input type = "button" value ="login" onclick="fn_login(this.form)" /><br/><br/>
-		<a href="/MYHOME_P/findIdPage.member">Find ID</a>
-		&nbsp; &nbsp;
-		<a href="/MYHOME_P/findPwPage.member">Find Password</a>
-	</form>
+	<div class="login">
+		<form method="post">
+			<p><input type = "text" name="mId" id="loginmId" placeholder="id" autofocus /> <br/></p>
+			<input type = "password" name="mPw" id="loginmPw" placeholder="****" /> <br/>
+			<br/>
+			<button type="button" class="btn btn-outline-dark" onclick="fn_login(this.form)">LOGIN</button>
+			<!-- <input type = "button" value ="login" onclick="fn_login(this.form)" /> --><br/><br/>
+			<a href="/MYHOME_P/findIdPage.member">Find ID</a>
+			&nbsp; &nbsp;
+			<a href="/MYHOME_P/findPwPage.member">Find PW</a>
+		</form>
+	</div>
 
 
 

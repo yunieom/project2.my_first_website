@@ -26,17 +26,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  INTO MEMBER2
 		VALUES (MEMBER2_SEQ.NEXTVAL, #{mId}, #{mPw}, #{mName}, #{mEmail}, #{mPhone}, #{mAddress}, SYSDATE) 
 	</insert>
-	<update id="memberUpdatePw" parameterType="dto.MemberDto">
-		UPDATE MEMBER2
-		   SET MPW = #{mPw}
-		 WHERE MID = #{mId}
-	</update>
 	<update id="memberUpdateInfo" parameterType="dto.MemberDto">
 		UPDATE MEMBER2
 		   SET MNAME = #{mName}
 		     , MEMAIL = #{mEmail}
 		     , MPHONE = #{mPhone}
 		     , MADDRESS = #{mAddress}
+		 WHERE MID = #{mId}
+	</update>
+	<update id="memberUpdatePw" parameterType="dto.MemberDto">
+		UPDATE MEMBER2
+		   SET MPW = #{mPw}
 		 WHERE MID = #{mId}
 	</update>
 	<select id="selectBymIdmPhone" parameterType="dto.MemberDto" resultType="dto.MemberDto">

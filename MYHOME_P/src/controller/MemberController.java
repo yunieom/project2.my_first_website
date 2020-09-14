@@ -97,13 +97,13 @@ public class MemberController extends HttpServlet {
 				result = ajaxCommand.execute(request, response);
 				out.println(result); // $.ajax의 success: function(result){}
 				break;	
-			case "/updatePw.member":
-				ajaxCommand = new UpdatePwCommand();
+			case "/updateInfo.member" :
+				ajaxCommand = new UpdateInfoCommand();
 				result = ajaxCommand.execute(request, response);
 				out.print(result);
 				break;
-			case "/updateInfo.member" :
-				ajaxCommand = new UpdateInfoCommand();
+			case "/updatePw.member":
+				ajaxCommand = new UpdatePwCommand();
 				result = ajaxCommand.execute(request, response);
 				out.print(result);
 				break;

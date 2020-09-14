@@ -13,31 +13,29 @@
 
 	
 		// 아이디, 비밀번호, 이메일 체크 후에만 회원가입이 가능하도록 추가한 변수
-
 		var pwPass = false;  // 비밀번호 체크 성공(true), 실패(false)
 
 		
-		// 페이지 로드 이벤트
 		$(document).ready(function(){
 
 			var regExpPw = /^(?=.*[a-zA-Z~!@#$%^&*()_+|<>?:{}])(?=.*[0-9]).{8,}$/;   
 			$('#mPw').keyup(function() {
 				if ( regExpPw.test($('#mPw').val()) ) {
-					$('#pwCheckResult').text('Valid password');
-					$('#pwCheckResult').css('color', 'blue').css('font-weight', 'bold');
+					$('#updatePwCheckResult').text('Valid password');
+					$('#updatePwCheckResult').css('color', '#17a2b8').css('font-size', '15px');
 				} else {
-					$('#pwCheckResult').text('Use 8 or more characters with a mix of letters, numbers & symbols');
-					$('#pwCheckResult').css('color', 'red');
+					$('#updatePwCheckResult').text('Use 8 or more characters with a mix of letters, numbers & symbols');
+					$('#updatePwCheckResult').css('color', '#dc3545').css('font-size', '15px');
 				}
 			});
 			$('#mPw2').keyup(function() {
 				if ( $('#mPw').val() != $('#mPw2').val() ) {
-					$('#pwConfirmResult').text('Those passwords didn\'t match. Try again.');
-					$('#pwConfirmResult').css('color', 'red');
+					$('#updatePwConfirmResult').text('Those passwords didn\'t match. Try again.');
+					$('#updatePwConfirmResult').css('color', '#dc3545').css('font-size', '15px');
 					pwPass = false;
 				} else {
-					$('#pwConfirmResult').text('Matched');
-					$('#pwConfirmResult').css('color', 'blue').css('font-weight', 'bold');
+					$('#updatePwConfirmResult').text('Matched');
+					$('#updatePwConfirmResult').css('color', '#17a2b8').css('font-size', '15px');
 					pwPass = true;  // 비밀번호 체크 통과
 				}
 			});
@@ -47,8 +45,8 @@
 			
 			
 			
-			// 5. 비밀번호
-			$('#updatePwBtn').click(function() {
+			// password
+			$('#updatePwBtn2').click(function() {
 				if (  pwPass ) { 
 					$.ajax({
 						url: '/MYHOME_P/updatePw.member',
@@ -60,10 +58,10 @@
 							// obj : {"isSuccess":true}
 							// obj : {"isSuccess":false}
 							if ( obj.isSuccess ) {
-								alert('비밀번호 변경에 성공했습니다.');
+								alert('Successfully changed your password');
 								location.href = '/MYHOME_P/loginPage.member';
 							} else {
-								alert('비밀번호 변경에 실패했습니다.');
+								alert('Failed to change your password');
 							}
 						},
 						
@@ -81,25 +79,29 @@
 	
 	</script>
 	
-	<br/><br/>
-	<form id="f" method="post">
+	<br/><br/><br/><br/>
+	<div class="changePw">
+		<form id="f" method="post">
+		
+			<h3>CHANGE YOUR PASSWORD</h3>
+			<br/>
 	
-		<h3>CHANGE YOUR PASSWORD</h3>
-
-		NEW PASSWORD<br/>	
-		<input id="mPw" type="password" name="mPw" /><br/>
-		<div id="pwCheckResult"></div><br/>
-		
-		CONFIRM NEW PASSWORD<br/>	
-		<input id="mPw2" type="password" name="mPw2" /><br/>
-		<div id="pwConfirmResult"></div><br/>
-		
-		
-		<input id="updatePwBtn" type="button" value="CHANGE PASSWORD" />
-		<input id="clearBtn" type="reset" value="CANCEL" />
-		
-	</form>
-	
+			NEW PASSWORD<br/>	
+			<input id="mPw" type="password" name="mPw" /><br/>
+			<div id="updatePwCheckResult"></div><br/>
+			
+			CONFIRM NEW PASSWORD<br/>	
+			<input id="mPw2" type="password" name="mPw2" /><br/>
+			<div id="updatePwConfirmResult"></div><br/><br/>
+			
+			
+			<button type="button" id="updatePwBtn2"  class="btn btn-outline-dark">CHANGE PW</button>
+			<!--  <input id="updatePwBtn" type="button" value="CHANGE PASSWORD" /> -->&nbsp;&nbsp;
+			<button type="reset" id="clearBtn"  class="btn btn-outline-dark">CANCEL</button>
+			<!-- <input id="clearBtn" type="reset" value="CANCEL" />  -->
+			
+		</form>
+	</div>
 
 <!-- footer.jsp 포함(정적) -->
 <%@ include file="/templates/footer.jsp" %>

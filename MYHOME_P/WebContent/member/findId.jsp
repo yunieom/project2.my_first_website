@@ -20,34 +20,40 @@
 				$.ajax({
 					url:'/MYHOME_P/findId.member',
 					type: 'get',
-					data: 'mEmail=' + $('#mEmail').val(),
+					data: 'mEmail=' + $('#findIdmEmail').val(),
 					dataType: 'json',
 					success: function(result) {
 						if(result.resultId =='none') {
 							$('#findIdResult').text('The email address that you\'ve entered doesn\'t match any account.');
-							$('#findIdResult').css('color','red');
+							$('#findIdResult').css('color','#17a2b8').css('font-size','large');
 						}else {
-							$('#findIdResult').text('Your Id is \' ' + result.resultId + ' \'.' );
-							$('#findIdResult').css('color','navy');
+							$('#findIdResult').text('Your Id is \' ' + result.resultId + ' \'' );
+							$('#findIdResult').css('color','#dc3545').css('font-size','large');
 						}
 					},
 					error: function() {
-						alert('failed');
+						alert('error');
 					}
 				});
 			});
 		}
 
 	</script>
-
-	<form>
-		<h3>Your Email</h3>
-		<input id="mEmail" type="text" name="mEmail" autofocus />
-		<input id="findIdBtn" type="button" value="Find Id" />
-	</form>
-	<!-- Find Id result -->
-	<div id="findIdResult">
+	<br/><br/><br/><br/>
+		<div class="findId">
+		<form>
+			<h3>FIND YOUR ID</h3>
+			Enter your email
+			<br/><br/>
+			<p><input id="findIdmEmail" type="text" name="mEmail" placeholder="email" autofocus /><br/></p>
+			<button type="button" class="btn btn-outline-dark" id="findIdBtn">FIND ID</button>
+			<!-- <input id="findIdBtn" type="button" value="Find Id" /> --> 
+		</form>
+		<!-- Find Id result -->
+		<br/>
+		<div id="findIdResult">
+		</div>
 	</div>
-
+	<br/>
 <!-- footer.jsp 포함(정적) -->
 <%@ include file="/templates/footer.jsp" %>

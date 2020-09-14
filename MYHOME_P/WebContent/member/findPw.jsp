@@ -24,11 +24,11 @@
 					dataType: 'json',
 					success: function(obj){
 						if (obj.isMember) {
-							$('#findPwResult').text('Your temporary password is ' + obj.tempPw + '.');
-							$('#findPwResult').css('color', 'navy');
+							$('#findPwResult').text('Your temporary password is \' ' + obj.tempPw + ' \' ');
+							$('#findPwResult').css('color','#dc3545').css('font-size','large');
 						} else {
 							$('#findPwResult').text('No matching users found.');
-							$('#findPwResult').css('color','red');
+							$('#findPwResult').css('color','#17a2b8').css('font-size','large');
 						}
 					},
 					error: function(){
@@ -40,15 +40,21 @@
 		}
 	
 	</script>
+	<br/><br/><br/><br/>
+	<div class="findPw">
 	<form id="f">
-		Your ID
-		<input id="mId" type="text" name="mId" /><br/>
-		Your Phone
-		<input id="mPhone" type="text" name="mPhone" /><br/><br/>
-		<input id="findPwBtn" type="button" value="Find Password" />
+		<h3>FIND YOUR PASSWORD</h3>
+		Enter your ID and Phone
+		<br/><br/>
+		<p><input id="findPwmId" type="text" name="mId" placeholder="id"/><br/></p>
+		<p><input id="findPwmPhone" type="text" name="mPhone" placeholder="010-0000-0000"/><br/></p>
+		<button type="button" class="btn btn-outline-dark" id="findPwBtn">FIND PW</button>
+		<!-- <input id="findPwBtn" type="button" value="Find Password" /> -->
 	</form>
-	<br/><br/>
+	</div>
+	<br/>
 	<div id="findPwResult"></div>
+	<br/>
 
 
 <!-- footer.jsp 포함(정적) -->

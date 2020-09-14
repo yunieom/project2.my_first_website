@@ -35,7 +35,7 @@
 
 	
 	<br/><br/>
-	<div class="poolList">
+	<div class="boardList">
 	Total: &nbsp;  ${totalRecord} posts <br/>
 	</div>
 	<hr>

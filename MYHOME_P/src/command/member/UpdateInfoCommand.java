@@ -18,15 +18,13 @@ public class UpdateInfoCommand implements AjaxCommand {
 		request.setCharacterEncoding("utf-8");
 		
 		String mId = request.getParameter("mId"); 
-		String mPw = request.getParameter("mPw"); //수정할때 안건드리는데 왜가져오는거지?
-		String mName = request.getParameter("mName"); // 수정할때 안건드리는데 왜가져오는거지? 
+		String mName = request.getParameter("mName"); 
 		String mEmail = request.getParameter("mEmail");
 		String mPhone = request.getParameter("mPhone");
 		String mAddress = request.getParameter("mAddress");
 		
 		MemberDto mDto = new MemberDto();
 		mDto.setmId(mId);
-		mDto.setmPw(mPw);
 		mDto.setmName(mName);
 		mDto.setmEmail(mEmail);
 		mDto.setmPhone(mPhone);
