@@ -35,9 +35,25 @@
 
 	
 	<br/><br/>
-	<div class="boardList">
-	Total: &nbsp;  ${totalRecord} posts <br/>
-	</div>
+	<!--  <div class="boardList"> -->
+	
+		<form>	
+		<div class="newPost">
+			<span>Total: &nbsp;  ${totalRecord} posts</span>
+				<!-- 게시판 작성 버튼 : 로그인해야 작성할 수 있다. -->
+				<input type="hidden" name="page" value="${page}" />
+				<!--  <input type="button" value="List" onclick="fn_boardList(this.form)" />-->
+				<c:if test="${loginUser ne null}">
+					<button type="button" class="btn btn-outline-info" onclick="fn_myBoardList(this.form)">MY POST</button>
+					<!--<input type="button" value="MY POST"  />--> &nbsp;
+					<button type="button" class="btn btn-outline-warning" onclick="fn_boardInsertPage(this.form)" >NEW</button>
+					<!--  <input type="button" value="NEW"  />--> 
+					<input type="hidden" name="mId" value="${loginUser.mId}" />
+				</c:if>	
+			
+		</div>
+	</form>
+	<!-- </div>  -->
 	<hr>
 	<!-- 게시판 검색 -->
 
@@ -110,18 +126,6 @@
 		</div>
 	
 	<br/>
-	<div class="newPost">
-	<form>	
-		<!-- 게시판 작성 버튼 : 로그인해야 작성할 수 있다. -->
-		<input type="hidden" name="page" value="${page}" />
-		<!--  <input type="button" value="List" onclick="fn_boardList(this.form)" />-->
-		<c:if test="${loginUser ne null}">
-			<button type="button" class="btn btn-outline-warning" onclick="fn_boardInsertPage(this.form)" >NEW</button>
-			<!--  <input type="button" value="NEW"  />--> &nbsp;
-			<button type="button" class="btn btn-outline-info" onclick="fn_myBoardList(this.form)">MY POST</button>
-			<!--<input type="button" value="MY POST"  />-->
-			<input type="hidden" name="mId" value="${loginUser.mId}" />
-		</c:if>
-	</form>
-	</div>
+	
+	
 <%@ include file="/templates/footer.jsp" %>

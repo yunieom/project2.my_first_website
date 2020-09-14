@@ -24,9 +24,37 @@
 	padding: 4px 8px;
 }
 
-#main-wrap > div.newPost > form > button.btn.btn-outline-warning, button.btn.btn-outline-info {
-	padding: 2.5px 5px;	
+#main-wrap > form:nth-child(6) > div > button.btn.btn-outline-warning, button.btn.btn-outline-info {
+	padding: 2.5px 5px;
+	margin-right: 10px;
+	float: right;
 }
+
+#main-wrap > form:nth-child(6) > div > button.btn.btn-outline-info {
+	margin-right: 3%;
+}
+
+#main-wrap > form > div.boardInsert {
+	text-align: right;
+    margin-right: 45%;
+}
+#main-wrap > form > div.boardInsertContent {
+	text-align: left;
+    margin-left: 39%;
+}
+#main-wrap > form > div.boardInsertBtn {
+	text-align: center;
+	margin-right: 3%;
+}
+#boardInsertResetBtn, #boardInsertNewBtn {
+	margin-right: 0% !important;
+	float: none !important;
+	padding: 3px 6px;
+}
+#boardInsertListBtn {
+	padding: 3px 6px;
+}
+
 
  a {
  	text-decoration: none;
@@ -41,12 +69,17 @@
 #main-wrap > table > thead {
 	font-size: large;
 }
-#main-wrap > div.boardList {
+#main-wrap > form:nth-child(6) > div > span {
 	
  	text-align: left;
- 	margin-left: 15%;
+ 	margin-left: 3%;
  	font-size: large;
  }
+ 
+#main-wrap > div.boardList > form > div {
+	text-align: left;
+ 	font-size: large;
+}
  
 #main-wrap > div.page {
 	text-align: center;
@@ -64,7 +97,7 @@
 #wrap > div.page-width.footer--bottom_block > div > div:nth-child(1) > div {
  	text-align: center;
  }
-#main-wrap > div.newPost{
+#main-wrap > div.boardList > form > div {
  	float: right;
  	margin-right: 3%;
  }

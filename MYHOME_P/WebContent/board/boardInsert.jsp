@@ -13,16 +13,27 @@
 		f.submit();
 	}
 	</script>
-
-	<form method="post">
-		Writer <input type="text" name="mId" value="${loginUser.mId}" readonly /> <br/>
-		Title <input type="text" name="bTitle" autofocus /><br/>
-		Content<br/> <textarea name="bContent" rows="5" cols="30"></textarea> <br/><br/>
-		
-		<input type="button" value="submit" onclick="fn_boardInsert(this.form)" />
-		<input type="reset" value="reset" />
-		<input type="button" value="To List" onclick="location.href='/MYHOME_P/boardList.board'" />		
 	
-	</form>
+	<br/><br/><br/><br/>
+	
+	
+		<form method="post">
+			<div class="boardInsert">
+				writer <input type="text" name="mId" value="${loginUser.mId}" readonly /> <br/>
+				title <input type="text" name="bTitle" autofocus /><br/>
+			</div>
+			<div class="boardInsertContent">	
+				content<br/> <textarea name="bContent" rows="5" cols="30"></textarea> <br/><br/>
+			</div>
+			<div class="boardInsertBtn">
+				<button type="button" id="boardInsertNewBtn" class="btn btn-outline-dark" onclick="fn_boardInsert(this.form)" >submit</button>
+				<!-- <input type="button" value="submit" onclick="fn_boardInsert(this.form)" /> -->
+				<button type="reset" id="boardInsertResetBtn" class="btn btn-outline-dark">reset</button>
+				<!--  <input type="reset" value="reset" /> -->
+				<button type="button" id="boardInsertListBtn" class="btn btn-outline-dark" onclick="location.href='/MYHOME_P/boardList.board'">to list</button>
+				<!-- <input type="button" id="boardInsertListBtn" value="To List" onclick="location.href='/MYHOME_P/boardList.board'" /> -->	
+			</div>
+		</form>
+
 
 <%@ include file="/templates/footer.jsp" %>
