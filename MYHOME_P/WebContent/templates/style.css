@@ -54,7 +54,25 @@
 #boardInsertListBtn {
 	padding: 3px 6px;
 }
-
+#main-wrap > form > div.boardView > span {
+	text-align: left;
+    margin-left: 3%;
+    font-size: large
+}
+#main-wrap > form > div.boardViewContent {
+	text-align: left;
+	margin-left: 40%;
+}
+#main-wrap > form > div.boardViewContent > pre {
+	width: 300px;
+	border: 1px solid #000000;
+	padding: 10px;
+	padding-bottom: 30px;
+}
+#main-wrap > form > div.boardViewBtn {
+	text-align: center;
+	margin-left: 1%;
+}
 
  a {
  	text-decoration: none;

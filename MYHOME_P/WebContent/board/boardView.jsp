@@ -31,33 +31,41 @@
 		}
 	
 	</script>
+	<br/><br/><br/><br/>
 	
 	<form method="post">
-		<h3> Total ${totalRecord} posts</h3>
-		
-		writer ${bDto.mId} <br/>
-		title ${bDto.bTitle} <br/>
-		posted date ${bDto.bRegDate} <br/>
-		latest modify date ${bDto.bLastModify}<br/>
-		IP ${bDto.bIp} <br/>
-		views ${bDto.bHit}<br/>
-		content<br>
-		<pre>${bDto.bContent}</pre>
-		
-		<input type="hidden" name="page" value="${page}" />
-		<input type="hidden" name="bNo" value="${bDto.bNo}" />
-		<input type="button" value="To List" onclick="fn_boardList(this.form)" />
-		
-		<!--  loginUser only can comment--> 
-		<c:if test="${loginUser ne null and bDto.bDepth eq 0}">
-			<input type="button" value="comment" onclick="fn_replyInsertPage(this.form)" />
-		</c:if>
-		
-		<!--  loginUser only can delete --> 
-		<c:if test="${loginUser.mId eq bDto.mId}">
-			<input type="button" value="delete" onclick="fn_boardDelete(this.form)" />
-		</c:if>
+		<div class="boardView">
+			<span> Total: &nbsp; ${totalRecord} posts</span>
+		</div>
+		<hr>
+		<div class="boardViewContent">
+			writer: ${bDto.mId} <br/>
+			title: ${bDto.bTitle} <br/>
+			posted date: ${bDto.bRegDate} <br/>
+			latest modify date: ${bDto.bLastModify}<br/>
+			IP: ${bDto.bIp} <br/>
+			views: ${bDto.bHit}<br/>
+			content<br>
+			<pre>${bDto.bContent}</pre>
+		</div>	
+		<div class="boardViewBtn">	
+			<input type="hidden" name="page" value="${page}" />
+			<input type="hidden" name="bNo" value="${bDto.bNo}" />
+			<button type="button" id="boardInsertListBtn" class="btn btn-outline-dark" onclick="fn_boardList(this.form)">to list</button>
+			<!--  <input type="button" value="To List" onclick="fn_boardList(this.form)" />  -->
+			
+			<!--  loginUser only can comment--> 
+			<c:if test="${loginUser ne null and bDto.bDepth eq 0}">
+				<button type="button" id="boardInsertListBtn" class="btn btn-outline-dark" onclick="fn_replyInsertPage(this.form)" >comment</button>
+				<!-- <input type="button" value="comment" onclick="fn_replyInsertPage(this.form)" />  -->
+			</c:if>
+			
+			<!--  loginUser only can delete --> 
+			<c:if test="${loginUser.mId eq bDto.mId}">
+				<button type="button" id="boardInsertListBtn" class="btn btn-outline-dark" onclick="fn_boardDelete(this.form)">delete</button>
+				<!-- <input type="button" value="delete" onclick="fn_boardDelete(this.form)" />  -->
+			</c:if>
+		</div>
 	</form>
-	<br/><br/>
 	
 <%@ include file="/templates/footer.jsp" %>

@@ -64,10 +64,12 @@ public class BoardController extends HttpServlet {
 				boardCommand = new BoardDeleteCommand();
 				vf = boardCommand.excute(request, response);
 				break;
+				
 			case "/queryBoardList.board" :
 				boardCommand = new QueryBoardListCommand();
 				vf = boardCommand.excute(request, response);
 				break;
+				
 			case "/myBoardList.board" :
 				boardCommand = new MyBoardListCommand();
 				vf = boardCommand.excute(request, response);
